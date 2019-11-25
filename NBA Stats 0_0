@@ -1,0 +1,40 @@
+from urllib.request import urlopen as uReq
+from bs4 import BeautifulSoup as soup
+from NBA_Player import Player
+import csv
+from BR_Scraper_0_4 import scrape
+from BR_Scraper_0_4 import pull
+
+totals_url = 'https://www.basketball-reference.com/leagues/NBA_2020_totals.html'
+game_url = 'https://www.basketball-reference.com/leagues/NBA_2020_per_game.html'
+minute_url = 'https://www.basketball-reference.com/leagues/NBA_2020_per_minute.html'
+poss_url = 'https://www.basketball-reference.com/leagues/NBA_2020_per_poss.html'
+advanced_url = 'https://www.basketball-reference.com/leagues/NBA_2020_advanced.html'
+urls = [totals_url, game_url, minute_url, poss_url, advanced_url]
+
+#test
+print("Processing %s..." % (totals_url[54:-5]))
+for url in urls:
+    pull(url, scrape(url))
+
+
+# for each_url in urls:
+#     print("Processing %s..." % (each_url[54:-5]))
+#     scrape(each_url)
+#     pull(each_url)
+#     print()
+
+
+
+
+
+
+# file = open('totals', 'r')
+# player_stats = file.readlines()
+# stat_cats = player_stats[0].split(',')
+# print(player_stats[0])
+# i = 0
+# while i < 10:
+#     i+=1
+#     print(player_stats[i].decode('utf-8', 'strict'))
+
